@@ -12,8 +12,7 @@
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "next": "^14.2.5",
-    "framer-motion": "^11.3.19",
-    "lucide-react": "^0.427.0"
+    "@central-icons-react/all": "^1.1.48"
   },
   "devDependencies": {
     "typescript": "^5.5.4",
