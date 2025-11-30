@@ -4,6 +4,32 @@ A reference guide for product designers learning to code with Next.js and Tailwi
 
 ---
 
+## 📚 Project Documentation
+
+### About `AGENTS.md`
+
+This project includes an **`AGENTS.md`** file that serves as a comprehensive guide for AI agents (like those in Cursor) working on this codebase.
+
+**What it contains:**
+- Project structure and overview
+- Development guidelines and code style standards
+- Vercel's Web Interface Guidelines (accessibility, performance, interactions, animation, layout, content, and design best practices)
+- Common tasks and patterns
+- Key files to reference
+
+**How AI agents use it:**
+When you're working with AI assistance in Cursor, the AI agent automatically references `AGENTS.md` to:
+- Understand the project structure and conventions
+- Follow established code style and patterns
+- Apply accessibility and performance best practices
+- Maintain consistency with existing code
+- Make informed decisions about implementation details
+
+**For designers:**
+You don't need to read `AGENTS.md` yourself—it's primarily for the AI agents helping you code. However, if you're curious about the technical standards and best practices being applied to your site, feel free to take a look! The guidelines ensure your portfolio site is accessible, performant, and follows modern web standards.
+
+---
+
 ## 📐 Layout & Structure
 
 ### Next.js File Structure
