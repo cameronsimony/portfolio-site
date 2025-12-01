@@ -53,7 +53,7 @@ export default function Home() {
                 height: 8,
               }}
               popover={{
-                imageSrc: "/iverson-logo.svg",
+                videoSrc: "/assets/iverson-intro.mp4",
                 imageAlt: "Iverson",
               }}
               highlightColor="#00FE7F"
