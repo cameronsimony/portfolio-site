@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import Image from "next/image";
 
 interface PopoverLinkProps {
@@ -12,7 +12,8 @@ interface PopoverLinkProps {
     height: number;
   };
   popover: {
-    imageSrc: string;
+    imageSrc?: string;
+    videoSrc?: string;
     imageAlt: string;
     background?: string;
     glow?: string;
@@ -33,9 +34,18 @@ export default function PopoverLink({
   underlineWidth = "calc(100% + 2px)",
 }: PopoverLinkProps) {
   const [isHovered, setIsHovered] = useState(false);
+  const videoRef = useRef<HTMLVideoElement>(null);
   
   // Remove # from hex color for SVG
   const highlightColorHex = highlightColor.replace("#", "");
+
+  // Reset video to beginning when hovered
+  useEffect(() => {
+    if (isHovered && videoRef.current && popover.videoSrc) {
+      videoRef.current.currentTime = 0;
+      videoRef.current.play();
+    }
+  }, [isHovered, popover.videoSrc]);
 
   return (
     <span
@@ -71,12 +81,24 @@ export default function PopoverLink({
             `
           }}
         >
-          {/* Image */}
-          <img
-            src={popover.imageSrc}
-            alt={popover.imageAlt}
-            className="absolute inset-0 w-full h-full object-cover rounded-xl"
-          />
+          {/* Video or Image */}
+          {popover.videoSrc ? (
+            <video
+              ref={videoRef}
+              src={popover.videoSrc}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="absolute inset-0 w-full h-full object-cover rounded-xl"
+            />
+          ) : popover.imageSrc ? (
+            <img
+              src={popover.imageSrc}
+              alt={popover.imageAlt}
+              className="absolute inset-0 w-full h-full object-cover rounded-xl"
+            />
+          ) : null}
         </span>
       </span>
 
